@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function abes(){
+        //     document.write("<br> !not found");
+        // }
+    
+        // function sum(a,b){
+        //     document.write("<br> sum is: "+(a+b));
+        // }
+
+        // function sub(a,b){
+        //     document.write("<br> sub is: "+(a-b));
+        // }
+        // abes();
+        // sum(10,20);
+        // sub(20,10);
+
+        // const abes= () => "hello";
+        // const sum= (a,b) => a+b;
+        // const sub= (a,b) => a-b;
+
+        // document.write("<br> "+abes());
+        // document.write("<br> sum is: "+sum(10,20));
+        // document.write("<br> sub is: "+sub(20,10));
+
+        // make calculator using arrow fn 
+        const calculator= (a,b,operation) => {
+            switch(operation){
+                case "sum":
+                    return sum(a,b);
+                case "sub":
+                    return sub(a,b);
+                case "mul":
+                    return mul(a,b);
+                case "div":
+                    return div(a,b);
+                default:
+                    return "Invalid operation";
+            }
+        }
+
+        const sum= (a,b) => a+b;
+        const sub= (a,b) => a-b;
+        const mul= (a,b) => a*b;
+        const div= (a,b) => a/b;
+     
+    let a = Number(prompt("Enter first number:"));
+    let b = Number(prompt("Enter second number:"));
+
+    let operation = prompt("Enter operation (sum, sub, mul, div):");
+
+
+    let result = calculator(a, b, operation);
+
+
+   
+    document.write("Result: " + result);
+
+    </script>
+</body>
+</html>
