@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Shopping</title>
+
+    <style>
+        #card {
+            width: 500px;
+            height: 500px;
+            color: rgb(241, 17, 17);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background-color: rgb(238, 238, 114);
+        }
+
+        #items {
+            text-align: left;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #bill {
+            margin-top: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #bill img {
+            width: 150px;
+            height: 120px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="card">
+
+        <h2>Online Shopping</h2>
+
+        <div id="items">
+            Tea : ₹100 <br><br>
+            Coffee : ₹180 <br><br>
+            Pasta : ₹240 <br><br>
+            Cold Drink : ₹60 <br><br>
+        </div>
+
+        <button onclick="myFn()">Buy Now</button>
+
+        
+        <div id="bill"></div>
+
+    </div>
+
+
+    <script>
+
+        function myFn() {
+
+            let product = prompt("Enter your product name:");
+            let quantity = Number(prompt("Enter quantity:"));
+
+            product = product.toLowerCase();
+
+            let price = 0;
+            let image = "";
+
+            if (product == "tea") {
+                price = 100;
+                image = "https://www.tomatoblues.com/wp-content/uploads/2022/08/vegan-masala-chai-3.jpg";
+            }
+
+            else if (product == "coffee") {
+                price = 180;
+                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9BWsHzKWXY3orjOriG-fEK5zNHO5nvvAX-j72BuCXGg&s=10";
+            }
+
+            else if (product == "pasta") {
+                price = 240;
+                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTe5E27HtIdIEncvQsx7XXQk9iO-Vcqk489GV4LyQWjw&s=10";
+            }
+
+            else if (product == "cold drink") {
+                price = 60;
+                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQUq7AUs1gyLknQ65ncg2JU_7KZYD6qkJS-nHhUoh8Ag&s=10";
+            }
+
+            else {
+                alert("Product not found!");
+                return;
+            }
+
+
+            if (quantity <= 0 || isNaN(quantity)) {
+                alert("Please enter a valid quantity!");
+                return;
+            }
+
+
+            let total = price * quantity;
+
+
+            document.getElementById("bill").innerHTML = `
+                
+                <h3>Bill Details</h3>
+
+                <img src="${image}" alt="${product}">
+
+                <p><b>Product:</b> ${product}</p>
+
+                <p><b>Price:</b> ₹${price}</p>
+
+                <p><b>Quantity:</b> ${quantity}</p>
+
+                <h3>Total Bill: ₹${total}</h3>
+
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>
